@@ -8,7 +8,7 @@ import "./globals.css";
 const siteUrl = "https://misummit.org";
 const title = "Muslim Innovators Summit — MIS 1.0";
 const description =
-  "250 seats. One room. Ogbomoso. MIS 1.0 is the founding edition of the Muslim Innovators Summit — a day of talks, panels, and a buildathon for Muslim founders, engineers, and builders in tech.";
+  "Limited seats. One room. Ogbomoso. MIS 1.0 is the founding edition of the Muslim Innovators Summit — a day of talks, panels, and a buildathon for Muslim founders, engineers, and builders in tech.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
-import { EVENT } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Code of Conduct",
@@ -24,7 +23,7 @@ const SECTIONS = [
   },
   {
     title: "Reporting",
-    body: `If something happens that shouldn't have, tell any organizer on-site or email ${EVENT.contactEmail}. Reports are handled directly by the organizing team and taken seriously.`,
+    body: `If something happens that shouldn't have, tell any organizer on-site. Reports are handled directly by the organizing team and taken seriously.`,
   },
   {
     title: "Consequences",

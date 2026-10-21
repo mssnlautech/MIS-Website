@@ -4,8 +4,7 @@ import {
   Agreement01Icon,
   ArrowRight02Icon,
   Compass01Icon,
-  Mail01Icon,
-  UserGroup03Icon,
+  // UserGroup03Icon,
 } from "hugeicons-react";
 import Container from "./Container";
 import { EVENT } from "@/lib/data";
@@ -18,10 +17,10 @@ const EXPLORE_LINKS = [
   { href: "/#faq", label: "FAQ" },
 ];
 
-const INVOLVED_LINKS = [
-  // { href: "/speak", label: "Apply to speak" },
-  { href: "/volunteer", label: "Apply to volunteer" },
-];
+// const INVOLVED_LINKS = [
+//   { href: "/speak", label: "Apply to speak" },
+//   { href: "/volunteer", label: "Apply to volunteer" },
+// ];
 
 const LEGAL_LINKS = [
   { href: "/code-of-conduct", label: "Code of Conduct" },
@@ -44,7 +43,7 @@ export default function Footer() {
             />
           </Link>
           <p className="max-w-sm text-sm leading-6 text-cream-dim">
-            {EVENT.cohort} &mdash; {EVENT.seats} seats, one room,{" "}
+            {EVENT.cohort} &mdash; limited seats, one room,{" "}
             {EVENT.city}. The founding edition of a community for Muslim
             builders in tech.
           </p>
@@ -70,6 +69,7 @@ export default function Footer() {
           ))}
         </div>
 
+        {/* Not releasing yet
         <div className="flex flex-col gap-3">
           <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
             <UserGroup03Icon size={14} />
@@ -88,7 +88,6 @@ export default function Footer() {
               />
             </Link>
           ))}
-          {/* Not releasing yet
           <a
             href={`mailto:${EVENT.sponsorEmail}`}
             className="group flex w-fit items-center gap-1.5 text-sm text-cream-dim transition-colors hover:text-cream"
@@ -99,8 +98,8 @@ export default function Footer() {
               className="-translate-x-1 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100"
             />
           </a>
-          */}
         </div>
+        */}
 
         <div className="flex flex-col gap-3">
           <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">
@@ -116,13 +115,6 @@ export default function Footer() {
               {link.label}
             </Link>
           ))}
-          <a
-            href={`mailto:${EVENT.contactEmail}`}
-            className="flex items-center gap-1.5 text-sm text-cream-dim transition-colors hover:text-cream"
-          >
-            <Mail01Icon size={14} />
-            {EVENT.contactEmail}
-          </a>
         </div>
       </Container>
 

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
-import { EVENT } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -24,11 +23,7 @@ const SECTIONS = [
   },
   {
     title: "How long we keep it",
-    body: "For as long as it's useful for running this event and planning the next one. Email us if you'd like your information removed.",
-  },
-  {
-    title: "Contact",
-    body: `Questions about your data — email ${EVENT.contactEmail}.`,
+    body: "For as long as it's useful for running this event and planning the next one. Reach out to the organizing team if you'd like your information removed.",
   },
 ];
 

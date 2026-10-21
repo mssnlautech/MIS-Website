@@ -60,9 +60,7 @@ const eventJsonLd = {
   organizer: {
     "@type": "Organization",
     name: EVENT.name,
-    email: EVENT.contactEmail,
   },
-  maximumAttendeeCapacity: EVENT.seats,
 };
 
 export default function Home() {
@@ -85,7 +83,7 @@ export default function Home() {
           </span>
 
           <h1 className="max-w-4xl font-heading text-4xl font-semibold leading-[1.1] tracking-tight text-cream sm:text-6xl">
-            250 seats. One room.{" "}
+            Limited seats. One room.{" "}
             <span className="text-gold-300">Ogbomoso.</span>
           </h1>
 
@@ -96,15 +94,13 @@ export default function Home() {
             purpose.
           </p>
 
-          {/* Not releasing yet
-          <Button href="/register">
+          <Button href={EVENT.ticketsUrl}>
             Get Your Ticket
             <ArrowRight02Icon
               size={18}
               className="transition-transform duration-200 group-hover:translate-x-1"
             />
           </Button>
-          */}
 
           <Link
             href="#why"
@@ -260,6 +256,7 @@ export default function Home() {
       </section>
 
       {/* Get involved */}
+      {/* Not releasing yet
       <section className="border-t border-brand-950/10 bg-cream py-24 sm:py-32">
         <Container className="flex flex-col gap-16">
           <Reveal>
@@ -271,7 +268,6 @@ export default function Home() {
             />
           </Reveal>
           <div className="grid gap-6 sm:grid-cols-2">
-            {/* Not releasing yet
             <Reveal>
               <div className="flex h-full flex-col items-start gap-4 rounded-2xl border border-brand-950/10 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-500/40 hover:shadow-md">
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-950/5 text-brand-600">
@@ -293,7 +289,6 @@ export default function Home() {
                 </Button>
               </div>
             </Reveal>
-            */}
             <Reveal>
               <div className="flex h-full flex-col items-start gap-4 rounded-2xl border border-brand-950/10 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-500/40 hover:shadow-md">
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-950/5 text-brand-600">
@@ -318,6 +313,7 @@ export default function Home() {
           </div>
         </Container>
       </section>
+      */}
 
       {/* Tickets */}
       {/* Not releasing yet
@@ -326,7 +322,7 @@ export default function Home() {
           <Reveal>
             <SectionHeading
               eyebrow="Tickets"
-              title="250 seats total. Once they're gone, that's it for MIS 1.0."
+              title="Limited seats. Once they're gone, that's it for MIS 1.0."
               description={`${EVENT.dateLabel} · ${EVENT.city} · Prices in NGN`}
             />
           </Reveal>
