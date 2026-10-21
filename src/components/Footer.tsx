@@ -4,7 +4,6 @@ import {
   Agreement01Icon,
   ArrowRight02Icon,
   Compass01Icon,
-  Mail01Icon,
   // UserGroup03Icon,
 } from "hugeicons-react";
 import Container from "./Container";
@@ -18,7 +17,6 @@ const EXPLORE_LINKS = [
   { href: "/#faq", label: "FAQ" },
 ];
 
-// Not releasing yet
 // const INVOLVED_LINKS = [
 //   { href: "/speak", label: "Apply to speak" },
 //   { href: "/volunteer", label: "Apply to volunteer" },
@@ -33,7 +31,7 @@ const LEGAL_LINKS = [
 export default function Footer() {
   return (
     <footer className="border-t border-white/5 bg-brand-950">
-      <Container className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
+      <Container className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-5">
         <div className="flex flex-col gap-4 sm:col-span-2 lg:col-span-2">
           <Link href="/" className="group flex w-fit items-center">
             <Image
@@ -45,7 +43,7 @@ export default function Footer() {
             />
           </Link>
           <p className="max-w-sm text-sm leading-6 text-cream-dim">
-            {EVENT.cohort} &mdash; {EVENT.seats} seats, one room,{" "}
+            {EVENT.cohort} &mdash; limited seats, one room,{" "}
             {EVENT.city}. The founding edition of a community for Muslim
             builders in tech.
           </p>
@@ -117,13 +115,6 @@ export default function Footer() {
               {link.label}
             </Link>
           ))}
-          <a
-            href={`mailto:${EVENT.contactEmail}`}
-            className="flex items-center gap-1.5 text-sm text-cream-dim transition-colors hover:text-cream"
-          >
-            <Mail01Icon size={14} />
-            {EVENT.contactEmail}
-          </a>
         </div>
       </Container>
 

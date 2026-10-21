@@ -20,7 +20,7 @@ export default function RegisterPage() {
           <SectionHeading
             eyebrow="Tickets"
             title="Reserve your seat."
-            description={`${EVENT.dateLabel} · ${EVENT.city}. Only ${EVENT.seats} seats exist for MIS 1.0 — once they're sold, the next chance is MIS 2.0.`}
+            description={`${EVENT.dateLabel} · ${EVENT.city}. Seats for MIS 1.0 are limited — once they're sold, the next chance is MIS 2.0.`}
           />
         </Reveal>
 

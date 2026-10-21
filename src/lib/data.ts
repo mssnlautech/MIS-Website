@@ -6,6 +6,7 @@ export const EVENT = {
   venue: "Venue shared directly with ticket holders",
   city: "Ogbomoso, Nigeria",
   seats: 250,
+  ticketsUrl: "https://bitooqoh.com/explore/event.mssnlautech.org",
   timezone: "WAT (GMT+1)",
   contactEmail: "hello@misummit.org",
   ticketsEmail: "tickets@misummit.org",
@@ -15,7 +16,7 @@ export const EVENT = {
 };
 
 export const CAPACITY_FACTS = [
-  { value: "250", label: "Seats total" },
+  { value: "Limited", label: "Seats" },
   { value: "1", label: "Room — no parallel tracks" },
   { value: EVENT.city.split(",")[0], label: "Nigeria" },
   { value: EVENT.cohort, label: "The founding edition" },
@@ -28,7 +29,7 @@ export const WHY_BLOCKS = [
   },
   {
     title: "Why faith rooted",
-    body: "The schedule is built around prayer, not around it, and catering is halal by default, not by request this is a tech event built around how Muslim builders actually want to gather. We capped it at 250 seats on purpose: small enough that every attendee gets real access to the room, not just a badge. MIS 2.0 grows from what MIS 1.0 proves.",
+    body: "The schedule is built around prayer, not around it, and catering is halal by default, not by request this is a tech event built around how Muslim builders actually want to gather. We kept seats limited on purpose: small enough that every attendee gets real access to the room, not just a badge. MIS 2.0 grows from what MIS 1.0 proves.",
   },
 ];
 
