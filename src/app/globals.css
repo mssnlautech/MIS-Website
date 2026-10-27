@@ -3,8 +3,6 @@
 :root {
   --background: #051f1a;
   --foreground: #faf6ee;
-
-  /* Brand — Muslim Innovators Summit (2026 refresh) */
   --brand-950: #051f1a;
   --brand-900: #043026;
   --brand-800: #044031;
@@ -14,8 +12,6 @@
   --brand-400: #2cae89;
   --brand-300: #79cab0;
   --brand-200: #c8e6d7;
-
-  /* Accent — chartreuse, replaces the old gold accent scale */
   --gold-500: #9ab001;
   --gold-400: #c1dc01;
   --gold-300: #d1e541;
