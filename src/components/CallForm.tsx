@@ -39,7 +39,6 @@ export default function CallForm({
     try {
       await submitCallFormEntry(formType, labeledFields);
     } catch {
-      // Persistence is best-effort — the mailto fallback below still reaches the team.
     }
 
     const body = fields
