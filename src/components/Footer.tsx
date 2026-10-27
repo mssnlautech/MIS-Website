@@ -4,7 +4,6 @@ import {
   Agreement01Icon,
   ArrowRight02Icon,
   Compass01Icon,
-  // UserGroup03Icon,
 } from "hugeicons-react";
 import Container from "./Container";
 import { EVENT } from "@/lib/data";
