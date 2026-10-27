@@ -58,7 +58,6 @@ body {
   color: var(--brand-950);
 }
 
-/* Subtle geometric star texture echoing the pinwheel mark in the logo */
 .geo-pattern {
   background-image:
     radial-gradient(circle at 1px 1px, rgba(246, 244, 238, 0.08) 1px, transparent 0);
