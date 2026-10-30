@@ -1,4 +1,4 @@
--- Run this once against your Neon database (SQL Editor or `psql "$DATABASE_URL" -f db/schema.sql`).
+-- Run this once against your Supabase database (SQL Editor or `psql "$DATABASE_URL" -f db/schema.sql`).
 
 create extension if not exists pgcrypto;
 
@@ -32,3 +32,8 @@ create table if not exists ticket_orders (
   paid_at timestamptz,
   raw_payload jsonb not null
 );
+
+-- Block Supabase's public Data API. The app connects as `postgres`, which bypasses RLS.
+alter table volunteer_applications enable row level security;
+alter table call_form_submissions enable row level security;
+alter table ticket_orders enable row level security;
