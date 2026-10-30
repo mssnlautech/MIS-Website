@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { href: "/#format", label: "Format" },
   // { href: "/#tickets", label: "Tickets" },
   { href: "/#faq", label: "FAQ" },
+  { href: "/volunteer", label: "Volunteer" },
 ];
 
 export default function Navbar() {
