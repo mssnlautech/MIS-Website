@@ -8,11 +8,11 @@ export const EVENT = {
   seats: 250,
   ticketsUrl: "https://bitooqoh.com/explore/event.mssnlautech.org",
   timezone: "WAT (GMT+1)",
-  contactEmail: "hello@misummit.org",
-  ticketsEmail: "tickets@misummit.org",
-  speakersEmail: "speak@misummit.org",
-  volunteerEmail: "volunteer@misummit.org",
-  sponsorEmail: "partner@misummit.org",
+  contactEmail: "musliminnovatorssummit@gmail.com",
+  ticketsEmail: "musliminnovatorssummit@gmail.com",
+  speakersEmail: "musliminnovatorssummit@gmail.com",
+  volunteerEmail: "musliminnovatorssummit@gmail.com",
+  sponsorEmail: "musliminnovatorssummit@gmail.com",
 };
 
 export const CAPACITY_FACTS = [

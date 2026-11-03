@@ -60,6 +60,7 @@ const eventJsonLd = {
   organizer: {
     "@type": "Organization",
     name: EVENT.name,
+    email: EVENT.contactEmail,
   },
 };
 
@@ -255,7 +256,49 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Get involved */}
+      {/* Volunteer */}
+      <section
+        id="volunteer"
+        className="border-t border-brand-950/10 bg-cream py-24 sm:py-32"
+      >
+        <Container className="flex flex-col gap-16">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Get Involved"
+              title="MIS 1.0 runs on volunteers."
+              description="No volunteer team is locked in yet because we're building it from scratch, with you."
+              light
+            />
+          </Reveal>
+          <Reveal>
+            <div className="flex flex-col items-start gap-4 rounded-2xl border border-brand-950/10 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-500/40 hover:shadow-md sm:flex-row sm:items-center sm:justify-between sm:gap-8">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-950/5 text-brand-600">
+                  <UserGroup03Icon size={20} />
+                </span>
+                <div className="flex flex-col gap-1">
+                  <h3 className="font-heading text-lg font-semibold text-brand-950">
+                    Volunteer with us
+                  </h3>
+                  <p className="text-sm leading-6 text-brand-700">
+                    Registration, room logistics, speaker support, buildathon
+                    facilitation &mdash; pick where you fit.
+                  </p>
+                </div>
+              </div>
+              <Button href="/volunteer" variant="secondary" className="shrink-0">
+                Apply to Volunteer
+                <ArrowRight02Icon
+                  size={16}
+                  className="transition-transform duration-200 group-hover:translate-x-1"
+                />
+              </Button>
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+
+      {/* Get involved (speak + volunteer) */}
       {/* Not releasing yet
       <section className="border-t border-brand-950/10 bg-cream py-24 sm:py-32">
         <Container className="flex flex-col gap-16">

@@ -1,5 +1,6 @@
 import { withDb } from "@/lib/db";
 import { formatDateTime } from "@/lib/admin-format";
+import ExportButton from "@/components/ExportButton";
 
 export const dynamic = "force-dynamic";
 
@@ -38,9 +39,12 @@ export default async function AdminSpeakersPage() {
 
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="font-heading text-xl font-semibold text-cream">
-        Speaker submissions ({submissions.length})
-      </h1>
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <h1 className="font-heading text-xl font-semibold text-cream">
+          Speaker submissions ({submissions.length})
+        </h1>
+        {submissions.length > 0 && <ExportButton table="speakers" />}
+      </div>
       {submissions.length === 0 ? (
         <p className="text-sm text-cream-dim">No submissions yet.</p>
       ) : (

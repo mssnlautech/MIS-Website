@@ -1,5 +1,6 @@
 import { withDb } from "@/lib/db";
 import { formatDateTime } from "@/lib/admin-format";
+import ExportButton from "@/components/ExportButton";
 
 export const dynamic = "force-dynamic";
 
@@ -35,9 +36,12 @@ export default async function AdminVolunteersPage() {
 
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="font-heading text-xl font-semibold text-cream">
-        Volunteer applications ({applications.length})
-      </h1>
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <h1 className="font-heading text-xl font-semibold text-cream">
+          Volunteer applications ({applications.length})
+        </h1>
+        {applications.length > 0 && <ExportButton table="volunteers" />}
+      </div>
       {applications.length === 0 ? (
         <p className="text-sm text-cream-dim">No applications yet.</p>
       ) : (
