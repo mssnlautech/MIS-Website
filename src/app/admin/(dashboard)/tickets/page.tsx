@@ -1,5 +1,6 @@
 import { withDb } from "@/lib/db";
 import { formatDateTime, formatNaira } from "@/lib/admin-format";
+import ExportButton from "@/components/ExportButton";
 
 export const dynamic = "force-dynamic";
 
@@ -36,9 +37,12 @@ export default async function AdminTicketsPage() {
 
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="font-heading text-xl font-semibold text-cream">
-        Ticket orders ({orders.length})
-      </h1>
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <h1 className="font-heading text-xl font-semibold text-cream">
+          Ticket orders ({orders.length})
+        </h1>
+        {orders.length > 0 && <ExportButton table="tickets" />}
+      </div>
       {orders.length === 0 ? (
         <p className="text-sm text-cream-dim">
           No ticket orders yet — this fills in once the Paystack webhook is receiving real payments.
