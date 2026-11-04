@@ -4,14 +4,18 @@ import { verifySessionToken, ADMIN_COOKIE_NAME } from "@/lib/admin-auth";
 import { withDb } from "@/lib/db";
 import { formatNaira } from "@/lib/admin-format";
 
-const ALLOWED_TABLES = ["volunteers", "speakers", "tickets"] as const;
+const ALLOWED_TABLES = ["volunteers", "speakers", "tickets", "hackathon", "partners"] as const;
 type ExportTable = (typeof ALLOWED_TABLES)[number];
 
-/** Escape a value for CSV (RFC 4180). */
+/**
+ * Escape a value for CSV (RFC 4180). Values starting with a formula trigger
+ * get a leading apostrophe so Excel/Sheets show them as text instead of running them.
+ */
 function csvCell(value: unknown): string {
   if (value == null) return "";
-  const str = String(value);
-  if (str.includes(",") || str.includes('"') || str.includes("\n")) {
+  let str = String(value);
+  if (/^[=+\-@\t\r]/.test(str)) str = `'${str}`;
+  if (/[",\n\r]/.test(str)) {
     return `"${str.replace(/"/g, '""')}"`;
   }
   return str;
@@ -136,10 +140,95 @@ async function exportTickets(): Promise<string> {
   });
 }
 
+async function exportHackathon(): Promise<string> {
+  return withDb(async (db) => {
+    const { rows } = await db.query<{
+      name: string;
+      email: string;
+      phone: string;
+      team_name: string | null;
+      skills: string;
+      experience: string;
+      project_idea: string | null;
+      created_at: Date;
+    }>(
+      `SELECT name, email, phone, team_name, skills, experience, project_idea, created_at
+       FROM hackathon_registrations ORDER BY created_at DESC`
+    );
+
+    const header = csvRow([
+      "Name",
+      "Email",
+      "Phone",
+      "Team Name",
+      "Skills",
+      "Experience",
+      "Project Idea",
+      "Submitted",
+    ]);
+    const lines = rows.map((r) =>
+      csvRow([
+        r.name,
+        r.email,
+        r.phone,
+        r.team_name ?? "",
+        r.skills,
+        r.experience,
+        r.project_idea ?? "",
+        formatDate(r.created_at),
+      ])
+    );
+
+    return [header, ...lines].join("\n");
+  });
+}
+
+async function exportPartners(): Promise<string> {
+  return withDb(async (db) => {
+    const { rows } = await db.query<{
+      name: string;
+      email: string;
+      phone: string;
+      organization: string;
+      partnership_type: string;
+      message: string;
+      created_at: Date;
+    }>(
+      `SELECT name, email, phone, organization, partnership_type, message, created_at
+       FROM partner_inquiries ORDER BY created_at DESC`
+    );
+
+    const header = csvRow([
+      "Name",
+      "Email",
+      "Phone",
+      "Organization",
+      "Partnership Type",
+      "Message",
+      "Submitted",
+    ]);
+    const lines = rows.map((r) =>
+      csvRow([
+        r.name,
+        r.email,
+        r.phone,
+        r.organization,
+        r.partnership_type,
+        r.message,
+        formatDate(r.created_at),
+      ])
+    );
+
+    return [header, ...lines].join("\n");
+  });
+}
+
 const exporters: Record<ExportTable, () => Promise<string>> = {
   volunteers: exportVolunteers,
   speakers: exportSpeakers,
   tickets: exportTickets,
+  hackathon: exportHackathon,
+  partners: exportPartners,
 };
 
 export async function GET(

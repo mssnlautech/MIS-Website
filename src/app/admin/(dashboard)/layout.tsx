@@ -6,6 +6,8 @@ const NAV_LINKS = [
   { href: "/admin", label: "Overview" },
   { href: "/admin/volunteers", label: "Volunteers" },
   { href: "/admin/speakers", label: "Speakers" },
+  { href: "/admin/hackathon", label: "Buildathon" },
+  { href: "/admin/partners", label: "Partners" },
   { href: "/admin/tickets", label: "Tickets" },
 ];
 

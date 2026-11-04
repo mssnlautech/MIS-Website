@@ -215,6 +215,15 @@ export default function Home() {
                     <p className="text-sm leading-6 text-cream-dim">
                       {item.description}
                     </p>
+                    {"cta" in item && item.cta && (
+                      <Link
+                        href={item.cta.href}
+                        className="mt-auto inline-flex items-center gap-1.5 pt-2 text-xs font-semibold text-gold-300 transition-colors hover:text-gold-200"
+                      >
+                        {item.cta.label}
+                        <ArrowRight02Icon size={14} />
+                      </Link>
+                    )}
                   </div>
                 </Reveal>
               );

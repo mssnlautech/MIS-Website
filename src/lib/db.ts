@@ -1,4 +1,11 @@
+import dns from "node:dns";
 import { Client } from "pg";
+
+// Prevent Windows Node getaddrinfo ENOTFOUND issues by prioritizing IPv4 for poolers.
+// This changes DNS for the whole process, so keep it to local Windows dev only.
+if (process.platform === "win32") {
+  dns.setDefaultResultOrder("ipv4first");
+}
 
 export async function withDb<T>(fn: (db: Client) => Promise<T>): Promise<T> {
   const connectionString = process.env.DATABASE_URL;
