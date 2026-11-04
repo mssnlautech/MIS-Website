@@ -10,9 +10,10 @@ import { EVENT } from "@/lib/data";
 const NAV_LINKS = [
   { href: "/#why", label: "Why" },
   { href: "/#format", label: "Format" },
-  // { href: "/#tickets", label: "Tickets" },
-  { href: "/#faq", label: "FAQ" },
+  { href: "/hackathon", label: "Buildathon" },
   { href: "/volunteer", label: "Volunteer" },
+  { href: "/partner", label: "Partners" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export default function Navbar() {

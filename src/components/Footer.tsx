@@ -19,8 +19,9 @@ const EXPLORE_LINKS = [
 ];
 
 const INVOLVED_LINKS = [
-  // { href: "/speak", label: "Apply to speak" },
+  { href: "/hackathon", label: "Join the buildathon" },
   { href: "/volunteer", label: "Apply to volunteer" },
+  { href: "/partner", label: "Partner with us" },
 ];
 
 const LEGAL_LINKS = [

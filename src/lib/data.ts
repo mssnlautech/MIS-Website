@@ -48,6 +48,7 @@ export const FORMAT_ITEMS = [
     title: "Buildathon",
     description:
       "A hands-on build block for attendees who want to leave with more than notes form a team, ship something small, demo it before the day ends.",
+    cta: { label: "Register for Buildathon", href: "/hackathon" },
   },
   {
     title: "Mentorship",
