@@ -65,7 +65,7 @@ export default async function AdminOverviewPage() {
   const stats = [
     { label: "Volunteer applications", value: counts.volunteers },
     { label: "Speaker submissions", value: counts.speakers },
-    { label: "Buildathon registrations", value: counts.hackathonRegistrations },
+    { label: "Pitchathon teams", value: counts.hackathonRegistrations },
     { label: "Partner inquiries", value: counts.partnerInquiries },
     { label: "Tickets sold", value: counts.ticketsSold },
     { label: "Seats remaining", value: seatsRemaining },

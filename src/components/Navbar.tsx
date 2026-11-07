@@ -10,7 +10,7 @@ import { EVENT } from "@/lib/data";
 const NAV_LINKS = [
   { href: "/#why", label: "Why" },
   { href: "/#format", label: "Format" },
-  { href: "/hackathon", label: "Buildathon" },
+  { href: "/pitchathon", label: "Pitchathon" },
   { href: "/volunteer", label: "Volunteer" },
   { href: "/partner", label: "Partners" },
   { href: "/#faq", label: "FAQ" },

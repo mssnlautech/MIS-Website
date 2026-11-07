@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
         destination: EVENT.ticketsUrl,
         permanent: false,
       },
+      // The Buildathon became the Pitchathon.
+      { source: "/hackathon", destination: "/pitchathon", permanent: true },
+      { source: "/admin/hackathon", destination: "/admin/pitchathon", permanent: true },
     ];
   },
 };

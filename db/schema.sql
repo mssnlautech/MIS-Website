@@ -47,11 +47,26 @@ create table if not exists hackathon_registrations (
   phone text not null,
   team_name text,
   project_idea text,
-  skills text not null,
-  experience text not null
+  skills text,
+  experience text
 );
 
--- One Buildathon registration per email (case-insensitive).
+-- Pitchathon (formerly Buildathon). Table name kept to avoid a rename.
+-- name/email/phone are the team lead; members holds every member, lead first:
+-- [{"name", "email", "phone"}]. skills/experience are only set on old Buildathon rows.
+-- The proposal is problem, project_idea (the solution), difference, traction,
+-- scalability, market, monetization.
+alter table hackathon_registrations add column if not exists members jsonb;
+alter table hackathon_registrations add column if not exists problem text;
+alter table hackathon_registrations add column if not exists difference text;
+alter table hackathon_registrations add column if not exists traction text;
+alter table hackathon_registrations add column if not exists scalability text;
+alter table hackathon_registrations add column if not exists market text;
+alter table hackathon_registrations add column if not exists monetization text;
+alter table hackathon_registrations alter column skills drop not null;
+alter table hackathon_registrations alter column experience drop not null;
+
+-- One registration per team-lead email (case-insensitive).
 create unique index if not exists hackathon_registrations_email_key
   on hackathon_registrations (lower(email));
 

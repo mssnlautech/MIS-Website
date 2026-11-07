@@ -19,7 +19,7 @@ const EXPLORE_LINKS = [
 ];
 
 const INVOLVED_LINKS = [
-  { href: "/hackathon", label: "Join the buildathon" },
+  { href: "/pitchathon", label: "Join the Pitchathon" },
   { href: "/volunteer", label: "Apply to volunteer" },
   { href: "/partner", label: "Partner with us" },
 ];

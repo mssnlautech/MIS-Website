@@ -18,7 +18,7 @@ export default function VolunteerPage() {
           <SectionHeading
             eyebrow="Call for Volunteers"
             title="A room this size still needs hands to run it."
-            description="Registration, room logistics, speaker support, buildathon facilitation — MIS 1.0 runs on volunteers. Tell us how you'd like to help."
+            description="Registration, room logistics, speaker support, Pitchathon facilitation — MIS 1.0 runs on volunteers. Tell us how you'd like to help."
           />
         </Reveal>
         <VolunteerForm />

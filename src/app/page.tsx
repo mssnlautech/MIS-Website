@@ -90,7 +90,7 @@ export default function Home() {
 
           <p className="max-w-2xl text-lg leading-8 text-cream-dim">
             MIS 1.0 is the founding edition of the Muslim Innovators
-            Summit a day of talks, panels, and a buildathon for
+            Summit a day of talks, panels, and a pitchathon for
             Muslim founders, engineers, and builders in tech. Small on
             purpose.
           </p>
@@ -290,7 +290,7 @@ export default function Home() {
                     Volunteer with us
                   </h3>
                   <p className="text-sm leading-6 text-brand-700">
-                    Registration, room logistics, speaker support, buildathon
+                    Registration, room logistics, speaker support, Pitchathon
                     facilitation &mdash; pick where you fit.
                   </p>
                 </div>
@@ -350,7 +350,7 @@ export default function Home() {
                   Volunteer with us
                 </h3>
                 <p className="text-sm leading-6 text-brand-700">
-                  Registration, room logistics, speaker support, buildathon
+                  Registration, room logistics, speaker support, Pitchathon
                   facilitation &mdash; MIS 1.0 runs on volunteers.
                 </p>
                 <Button href="/volunteer" variant="secondary" className="mt-auto">
