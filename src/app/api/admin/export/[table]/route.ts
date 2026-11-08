@@ -3,8 +3,9 @@ import type { NextRequest } from "next/server";
 import { verifySessionToken, ADMIN_COOKIE_NAME } from "@/lib/admin-auth";
 import { withDb } from "@/lib/db";
 import { formatNaira } from "@/lib/admin-format";
+import { PROPOSAL_FIELDS, type ProposalColumn } from "@/lib/pitchathon";
 
-const ALLOWED_TABLES = ["volunteers", "speakers", "tickets", "hackathon", "partners"] as const;
+const ALLOWED_TABLES = ["volunteers", "speakers", "tickets", "pitchathon", "partners"] as const;
 type ExportTable = (typeof ALLOWED_TABLES)[number];
 
 /**
@@ -140,44 +141,53 @@ async function exportTickets(): Promise<string> {
   });
 }
 
-async function exportHackathon(): Promise<string> {
+/** One row per participant, so ticket purchases can be checked person by person. */
+async function exportPitchathon(): Promise<string> {
   return withDb(async (db) => {
-    const { rows } = await db.query<{
-      name: string;
-      email: string;
-      phone: string;
-      team_name: string | null;
-      skills: string;
-      experience: string;
-      project_idea: string | null;
-      created_at: Date;
-    }>(
-      `SELECT name, email, phone, team_name, skills, experience, project_idea, created_at
+    const { rows } = await db.query<
+      {
+        name: string;
+        email: string;
+        phone: string;
+        team_name: string | null;
+        members: { name: string; email: string; phone: string }[] | null;
+        skills: string | null;
+        experience: string | null;
+        created_at: Date;
+      } & Record<ProposalColumn, string | null>
+    >(
+      `SELECT name, email, phone, team_name, members, skills, experience, created_at,
+              ${PROPOSAL_FIELDS.map((f) => f.column).join(", ")}
        FROM hackathon_registrations ORDER BY created_at DESC`
     );
 
     const header = csvRow([
+      "Team Name",
+      "Role",
       "Name",
       "Email",
       "Phone",
-      "Team Name",
-      "Skills",
-      "Experience",
-      "Project Idea",
+      ...PROPOSAL_FIELDS.map((f) => f.label),
+      "Skills (old form)",
+      "Experience (old form)",
       "Submitted",
     ]);
-    const lines = rows.map((r) =>
-      csvRow([
-        r.name,
-        r.email,
-        r.phone,
-        r.team_name ?? "",
-        r.skills,
-        r.experience,
-        r.project_idea ?? "",
-        formatDate(r.created_at),
-      ])
-    );
+    const lines = rows.flatMap((r) => {
+      const members = r.members ?? [{ name: r.name, email: r.email, phone: r.phone }];
+      return members.map((m, i) =>
+        csvRow([
+          r.team_name ?? "",
+          i === 0 ? "Lead" : "Member",
+          m.name,
+          m.email,
+          m.phone,
+          ...PROPOSAL_FIELDS.map((f) => r[f.column] ?? ""),
+          r.skills ?? "",
+          r.experience ?? "",
+          formatDate(r.created_at),
+        ])
+      );
+    });
 
     return [header, ...lines].join("\n");
   });
@@ -227,7 +237,7 @@ const exporters: Record<ExportTable, () => Promise<string>> = {
   volunteers: exportVolunteers,
   speakers: exportSpeakers,
   tickets: exportTickets,
-  hackathon: exportHackathon,
+  pitchathon: exportPitchathon,
   partners: exportPartners,
 };
 

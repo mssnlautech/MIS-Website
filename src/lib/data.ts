@@ -1,8 +1,8 @@
 export const EVENT = {
   name: "Muslim Innovators Summit",
   cohort: "MIS 1.0",
-  dateLabel: "Saturday, March 21, 2026",
-  dateISO: "2026-03-21T09:00:00+01:00",
+  dateLabel: "Sunday, December 13, 2026",
+  dateISO: "2026-12-13T09:00:00+01:00",
   venue: "Venue shared directly with ticket holders",
   city: "Ogbomoso, Nigeria",
   seats: 250,
@@ -25,7 +25,7 @@ export const CAPACITY_FACTS = [
 export const WHY_BLOCKS = [
   {
     title: "Why now",
-    body: "AI and product cycles are moving faster than at any point in the industry's history, and the rooms where that direction gets set rarely include Muslim builders. MIS 1.0 is our answer to that one day, one room in Ogbomoso, built around talks, panels, and a hands-on buildathon, where founders, engineers, and builders actually meet the people worth meeting instead of just following them online.",
+    body: "AI and product cycles are moving faster than at any point in the industry's history, and the rooms where that direction gets set rarely include Muslim builders. MIS 1.0 is our answer to that one day, one room in Ogbomoso, built around talks, panels, and a pitchathon, where founders, engineers, and builders actually meet the people worth meeting instead of just following them online.",
   },
   {
     title: "Why faith rooted",
@@ -45,10 +45,10 @@ export const FORMAT_ITEMS = [
       "Focused conversations on the hard parts of building in tech as a Muslim founder or operator, moderated for depth over breadth.",
   },
   {
-    title: "Buildathon",
+    title: "Pitchathon",
     description:
-      "A hands-on build block for attendees who want to leave with more than notes form a team, ship something small, demo it before the day ends.",
-    cta: { label: "Register for Buildathon", href: "/hackathon" },
+      "Teams of 2 to 4 take on a real problem in Nigeria and pitch a solution that can actually work. Proposals are screened, semi-finalists pitch virtually, and finalists pitch live to judges on the day for a ₦500,000 prize pool.",
+    cta: { label: "Register for the Pitchathon", href: "/pitchathon" },
   },
   {
     title: "Mentorship",
@@ -98,7 +98,7 @@ export const TICKETS: TicketTier[] = [
     note: "Ends whenever seat 50 sells — not on a fixed date.",
     features: [
       "Full-day access",
-      "All talks, panels & buildathon",
+      "All talks, panels & the Pitchathon final",
       "Halal meals included",
       "Mentorship sign-up access",
     ],
@@ -150,6 +150,6 @@ export const FAQS = [
   },
   {
     q: "What should I bring?",
-    a: "A valid ID for check in, and a laptop if you're joining the buildathon block. Business cards or a way to share contact info are useful for the room.",
+    a: "A valid ID for check in. Business cards or a way to share contact info are useful for the room.",
   },
 ];
