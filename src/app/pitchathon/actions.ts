@@ -120,6 +120,7 @@ export async function submitPitchathonRegistration(
       return { ok: false, error: `${taken} is already registered on a Pitchathon team.` };
     }
   } catch (error) {
+    console.error("Pitchathon registration submission error:", error);
     if (isUniqueViolation(error)) {
       return { ok: false, error: `${lead.email} is already registered on a Pitchathon team.` };
     }
