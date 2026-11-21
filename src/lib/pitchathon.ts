@@ -5,9 +5,9 @@ export const PITCHATHON = {
   teamMax: 4,
   prizePool: "₦500,000",
   registrationOpensLabel: "November 6, 2026",
-  registrationClosesLabel: "November 20, 2026",
+  registrationClosesLabel: "November 25, 2026",
   // Registration is accepted until the end of this day (WAT).
-  registrationClosesISO: "2026-11-20T23:59:59+01:00",
+  registrationClosesISO: "2026-11-25T23:59:59+01:00",
   finalLabel: "December 13, 2026",
   contact: {
     name: "Awwal",
